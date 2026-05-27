@@ -34,9 +34,14 @@ function apiCall(method, url, payload) {
   };
   if (payload !== undefined) opts.payload = JSON.stringify(payload);
 
+  Logger.log('apiCall: ' + method + ' ' + url);
+  if (payload !== undefined) Logger.log('apiCall payload: ' + JSON.stringify(payload));
+
   var res  = UrlFetchApp.fetch(url, opts);
   var code = res.getResponseCode();
   var body = res.getContentText();
+
+  Logger.log('apiCall response: HTTP ' + code + ' — ' + body.substring(0, 400));
 
   if (code === 204) return null;   // No Content — success
 
