@@ -8,20 +8,28 @@
 // ── Auth ──────────────────────────────────────────────────────────
 
 function authHeaders() {
+  // Content-Type is intentionally NOT set here.
+  // UrlFetchApp ignores Content-Type when set inside the headers object
+  // if a payload is also present — it silently falls back to
+  // application/x-www-form-urlencoded, which breaks JSON PATCH/POST calls.
+  // Use the top-level contentType option in apiCall instead.
   return {
-    'Authorization': 'Bearer ' + ScriptApp.getOAuthToken(),
-    'Content-Type' : 'application/json'
+    'Authorization': 'Bearer ' + ScriptApp.getOAuthToken()
   };
 }
 
 /**
  * Generic API helper. Throws a descriptive Error on HTTP 4xx/5xx.
  * Returns null on 204 No Content.
+ *
+ * contentType is set as a top-level UrlFetchApp option (not inside headers)
+ * to ensure it is respected for PATCH and POST requests with JSON bodies.
  */
 function apiCall(method, url, payload) {
   var opts = {
     method            : method,
     headers           : authHeaders(),
+    contentType       : 'application/json',
     muteHttpExceptions: true,
   };
   if (payload !== undefined) opts.payload = JSON.stringify(payload);
