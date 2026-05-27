@@ -1,0 +1,15 @@
+{
+  "timeZone": "America/New_York",
+  "dependencies": {},
+  "exceptionLogging": "STACKDRIVER",
+  "runtimeVersion": "V8",
+  "oauthScopes": [
+    "https://www.googleapis.com/auth/admin.directory.user",
+    "https://www.googleapis.com/auth/admin.directory.user.security",
+    "https://www.googleapis.com/auth/admin.directory.orgunit.readonly",
+    "https://www.googleapis.com/auth/admin.datatransfer",
+    "https://www.googleapis.com/auth/apps.licensing",
+    "https://www.googleapis.com/auth/gmail.send",
+    "https://www.googleapis.com/auth/script.external_request"
+  ]
+}
