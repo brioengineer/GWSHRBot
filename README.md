@@ -1,6 +1,6 @@
 # GWS HR Bot
 **Google Chat bot for employee onboarding & offboarding**
-Built by: Steve Moynihan, Solutions Engineer [Brio Technologies](https://briotechnologies.com) 
+Built by: Steve Moynihan, Solutions Engineer [Brio Technologies](https://briotech.com) 
 
 ---
 
